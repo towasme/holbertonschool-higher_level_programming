@@ -13,12 +13,14 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
 	int i = 0, cont = 0;
-	int num_arr[2000];
+	int num_arr[2500];
 
 	if (!head)
-	{
 		return (0);
-	}
+
+	if (*head == NULL)
+		return (1);
+
 	while (temp)
 	{
 		num_arr[i] = temp->n;
