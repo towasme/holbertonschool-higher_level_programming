@@ -1,4 +1,4 @@
-## 0x17. C - Doubly linked lists
+## 0x03. Python - Data Structures: Lists, Tuples
 ---
 # Tasks
 ---
