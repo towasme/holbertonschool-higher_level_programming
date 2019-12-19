@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    squares = []
+    squares = matrix.copy()
     for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            squares.append(j**2)
-        print()
+        squares[i] = (list(map(lambda j: j * j, squares[i])))
+    return (squares)
