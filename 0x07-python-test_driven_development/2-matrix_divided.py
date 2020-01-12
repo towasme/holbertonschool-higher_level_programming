@@ -54,9 +54,10 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     #divide
-    mini_list = []
     for a in range(len(matrix)):
+        mini_list = []
         for b in range(len(matrix[a])):
-            mini_list.append(round((matrix[a][b]/div), 2))
+            number = round(matrix[a][b]/div, 2)
+            mini_list.append(number)
         new_matrix.append(mini_list)
     return new_matrix
