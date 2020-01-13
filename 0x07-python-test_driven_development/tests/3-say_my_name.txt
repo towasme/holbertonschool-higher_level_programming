@@ -1,3 +1,9 @@
+===============================
+3. Say My Name Module
+===============================
+import module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
 Section // Non-Parameters
 =========================
 Test case #0: A test case without parameters
@@ -6,7 +12,7 @@ Test case #0: A test case without parameters
     TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
 >>> say_my_name("John", "Smith")
-My name is John Smith
+    My name is John Smith
 
 >>> say_my_name("Walter", "White")
 My name is Walter White
