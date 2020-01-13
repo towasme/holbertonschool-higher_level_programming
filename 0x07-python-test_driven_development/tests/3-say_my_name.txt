@@ -1,0 +1,49 @@
+Section // Non-Parameters
+=========================
+Test case #0: A test case without parameters
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+>>> say_my_name("Bob")
+My name is Bob<space>
+
+>>> say_my_name(3)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("paula", 30)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name("")
+My name is<space><empty><space><empty>
+
+>>> say_my_name("Baby")
+My name is Baby
+
+>>> say_my_name(" ", "Riaño")
+My name is<space><space><space>Riaño
+
+>>> say_my_name(" ", " ")
+My name is<space><space><space><space>
+
+>>> say_my_name("", "")
+"My name is<space><empty><space><empty>"
+
+Test case #11: A test case with two new lines
+>>> say_my_name('\n', '\n')
+My name is 
+<BLANKLINE>
+<BLANKLINE>
+
