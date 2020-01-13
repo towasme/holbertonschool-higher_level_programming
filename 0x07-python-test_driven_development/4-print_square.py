@@ -15,17 +15,16 @@ def print_square(size):
         prints a box using #
     """
 #    #conditions
-    if size is None:
-        raise ValueError()
-    if type(size) is float and size > 0:
-        raise TypeError("size must be an integer")
     if type(size) is not int:
-        raise ValueError("size must be an integer")
-    if size < 0:
+        raise TypeError("size must be an integer")
+    elif size < 0:
         raise ValueError("size must be >= 0")
-
-#    #print the square
-    for i in range(size):
-        for j in range(size):
-            print("#", end="")
-        print()
+    elif type(size) is float and size < 0:
+        raise TypeError("size must be an integer")
+    elif size == 0:
+        None
+    else:
+        for i in range(size):
+            for j in range(size):
+                print("#", end="")
+            print()
