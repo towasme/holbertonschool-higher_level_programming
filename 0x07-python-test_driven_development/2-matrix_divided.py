@@ -26,13 +26,20 @@ def matrix_divided(matrix, div):
     new_matrix = []
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
-#    #check if list exist and elements in list exist
+
 
 #    #check if matrix is a list of lists
     if type(matrix) is not list:
         raise TypeError(msg)
     for i in range(len(matrix)):
         if type(matrix[i]) is not list:
+            raise TypeError(msg)
+
+#    #check if list exist and elements in list exist
+    if len(matrix) == 0:
+        raise TypeError(msg)
+    for row in matrix:
+        if len(row) == 0:
             raise TypeError(msg)
 
 #    #check if matrix has integers or floats
