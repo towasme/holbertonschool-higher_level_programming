@@ -25,9 +25,6 @@ def matrix_divided(matrix, div):
     row_size = len(matrix[0])
     new_matrix = []
     msg = "matrix must be a matrix (list of lists) of integers/floats"
-
-
-
 #    #check if matrix is a list of lists
     if type(matrix) is not list:
         raise TypeError(msg)
