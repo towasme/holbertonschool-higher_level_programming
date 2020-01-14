@@ -5,12 +5,6 @@ say_my_name("John", "Smith")
 say_my_name("Walter", "White")
 say_my_name("Bob")
 try:
-<<<<<<< HEAD
         say_my_name(12, "White")
 except Exception as e:
         print(e)
-=======
-    say_my_name(12, "White")
-except Exception as e:
-    print(e)
->>>>>>> origin/master
