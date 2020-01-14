@@ -70,7 +70,7 @@ TypeError: size must be an integer
         >>> print_square(0)
         <empty>
 
-'size' is float:
+    'size' is float:
     >>> print_square(0.5)
     Traceback (most recent call last):
     TypeError: size must be an integer
