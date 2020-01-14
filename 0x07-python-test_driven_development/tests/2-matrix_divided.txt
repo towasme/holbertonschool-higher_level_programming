@@ -68,7 +68,6 @@ All elements of list must be a integer or float:
 
 >>> matrix_divided("Hello", 0)
 Traceback (most recent call last):
-      
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 All elements of the list must have the same size
@@ -81,9 +80,4 @@ All elements of the list must have the same size
         ...
     TypeError: Each row of the matrix must have the same size
 
-div must be a number and >0
-    >>> matrix_divided(matrix, hi)
-    Traceback (most recent call last):
-
-TypeError: div must be a number
 
