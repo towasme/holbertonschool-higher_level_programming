@@ -61,11 +61,6 @@ Test case #16: A test case with the type of value returned
     >>> matrix_divided([[1, 2, 3], [4, 0.5, 6]], 3)
     [[0.33, 0.67, 1.0], [1.33, 0.17, 2.0]]
 
-All elements of list must be a integer or float:
->>> matrix_divided([[1, 2, "Hola"], [4, 0.5, 6]], 3)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
 >>> matrix_divided("Hello", 0)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
