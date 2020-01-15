@@ -3,9 +3,13 @@ class Rectangle:
     """
     class Rectangle with two private attributes, width and height
     """
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def height(self):
@@ -47,7 +51,7 @@ class Rectangle:
         else:
             for j in range(self.__height):
                 for k in range(self.__width):
-                    new_str += '#'
+                    new_str += (str(self.print_symbol))
                 new_str += '\n'
             new_str = new_str.rstrip()
             return new_str
@@ -57,3 +61,4 @@ class Rectangle:
 
     def __del__(self):
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

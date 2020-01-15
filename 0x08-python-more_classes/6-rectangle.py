@@ -44,20 +44,20 @@ class Rectangle:
             return (self.__height + self.__width) * 2
 
     def __str__(self):
-        str = ""
+        new_str = ""
         if self.__width == 0 or self.__height == 0:
-            return str
+            return new_str
         else:
             for j in range(self.__height):
                 for k in range(self.__width):
-                    str += '#'
-                str += '\n'
-            str = str.rstrip()
-            return str
+                    new_str += '#'
+                new_str += '\n'
+            new_str = new_str.rstrip()
+            return new_str
 
     def __repr__(self):
         return ("Rectangle({}, {})".format(self.__width, self.__height))
 
     def __del__(self):
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1 
+        Rectangle.number_of_instances -= 1
