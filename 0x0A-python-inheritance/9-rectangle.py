@@ -47,4 +47,3 @@ class Rectangle(BaseGeometry):
         formal way of writing a rectangle
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
