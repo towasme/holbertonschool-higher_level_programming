@@ -12,7 +12,7 @@ def is_same_class(obj, a_class):
     @a_class: the specified class
     returns: true if its an instance or false if not an instance
     """
-    result = isinstance(obj, a_class)
+    result = issubclass(a_class, type(obj))
     if result:
         return True
     else:
