@@ -7,4 +7,4 @@ def lookup(obj):
     @obj: object to retrieve
     return a list
     """
-    return dir([obj])
+    return (dir(obj))
