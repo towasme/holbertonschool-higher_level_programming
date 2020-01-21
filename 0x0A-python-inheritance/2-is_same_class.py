@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-function that returns true if the object is exactly and instance of the specified class
+function that returns true if the object is
+exactly and instance of the specified class
     return: True or False
 """
 
