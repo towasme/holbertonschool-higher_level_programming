@@ -9,5 +9,4 @@ class MyList(list):
         """
         function that sorts and prints a list.
         """
-        self.list = list
         print(sorted(self))
