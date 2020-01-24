@@ -19,6 +19,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        if type(value) is not int:
+            raise TypeError(self.__width + "must be an integer width") #corregir salida nombre
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(self.__width))
         self.__width = value
 
     @property
@@ -27,6 +31,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        if type(value) is not int:
+            raise TypeError("{} must be an integer height".format(self.__height)) #corregir salida nombre
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(self.__height))
         self.__height = value
 
     @property
@@ -35,6 +43,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
+        if type(value) is not int:
+            raise TypeError("x must be an integer") #corregir salida nombre
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(self.__x))
         self.__x = value
 
     @property
@@ -43,4 +55,25 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
+        if type(value) is not int:
+            raise TypeError("{} must be an integer y".format(self.__y)) #corregir salida
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(self.__y))
         self.__y = value
+
+    def area(self):
+        return self.__width * self.__height
+
+    def display(self):
+        for o in range(self.__y):
+            print()
+        for i in range(self.__height):
+            for j in range(self.__width):
+                if j is 0:
+                    print(" " * self.__x, end="")
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+
