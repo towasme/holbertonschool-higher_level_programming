@@ -11,7 +11,7 @@ class Rectangle(Base):
         self.__height = height
         self.__x = x
         self.__y = y
-        super().__init__(id)
+        super(Rectangle, self).__init__(id)
 
     @property
     def width(self):
@@ -20,7 +20,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         if type(value) is not int:
-            raise TypeError(self.__width + "must be an integer width") #corregir salida nombre
+            raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("{} must be > 0".format(self.__width))
         self.__width = value
@@ -32,7 +32,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         if type(value) is not int:
-            raise TypeError("{} must be an integer height".format(self.__height)) #corregir salida nombre
+            raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("{} must be > 0".format(self.__height))
         self.__height = value
@@ -44,7 +44,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         if type(value) is not int:
-            raise TypeError("x must be an integer") #corregir salida nombre
+            raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("{} must be >= 0".format(self.__x))
         self.__x = value
@@ -56,7 +56,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         if type(value) is not int:
-            raise TypeError("{} must be an integer y".format(self.__y)) #corregir salida
+            raise TypeError("y must be an integer y")
         if value < 0:
             raise ValueError("{} must be >= 0".format(self.__y))
         self.__y = value
@@ -77,3 +77,35 @@ class Rectangle(Base):
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
 
+    def update(self, *args, **kwargs): #corregir codigo ya que no ejecuta bien
+        if args is not None:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
+        elif kwargs is not None:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.width = kwargs['width']
+            if 'height' in kwargs:
+                self.height = kwargs['height']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
+
+    def to_dictionary(self):
+        dicti = {}
+        dicti['x'] = self.__x
+        dicti['y'] = self.__y
+        dicti['id'] = self.id
+        dicti['width'] = self.__width
+        dicti['height'] = self.__height
+        return (dicti)
