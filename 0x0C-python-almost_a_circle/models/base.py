@@ -8,7 +8,9 @@ import json
 
 
 class Base:
-
+    """
+    class base
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -33,6 +35,7 @@ class Base:
         if list_objs is None:
             return str_new
         else:
-
+            for obj in list_objs:
+                str_new.append(obj)
         with open(filename, 'w', encoding='utf-8') as file:
             return file.write(json.dumps())
