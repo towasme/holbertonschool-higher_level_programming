@@ -7,7 +7,6 @@ import json
 
 class Base:
 
-
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -25,4 +24,5 @@ class Base:
             return (json.dumps(list_dictionaries))
 
     def save_to_file(cls, list_objs):
-
+        with open(filename, 'w', encoding='utf-8') as file:
+            return file.write(json.dumps(my_obj))

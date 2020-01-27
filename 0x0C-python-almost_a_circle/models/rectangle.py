@@ -5,12 +5,13 @@ class Rectangle that inherits from class Base
 
 from models.base import Base
 
+
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super(Rectangle, self).__init__(id)
 
     @property
@@ -21,8 +22,8 @@ class Rectangle(Base):
     def width(self, value):
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("{} must be > 0".format(self.__width))
+        if value < 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -33,8 +34,8 @@ class Rectangle(Base):
     def height(self, value):
         if type(value) is not int:
             raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("{} must be > 0".format(self.__height))
+        if value < 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -46,7 +47,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueError("{} must be >= 0".format(self.__x))
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -58,7 +59,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("y must be an integer y")
         if value < 0:
-            raise ValueError("{} must be >= 0".format(self.__y))
+            raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
@@ -75,10 +76,11 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}" \
+            .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args, **kwargs): #corregir codigo ya que no ejecuta bien
-        if args is not None:
+    def update(self, *args, **kwargs):
+        if args and args is not None:
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
@@ -89,17 +91,18 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) >= 5:
                 self.y = args[4]
-        elif kwargs is not None:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'width' in kwargs:
-                self.width = kwargs['width']
-            if 'height' in kwargs:
-                self.height = kwargs['height']
-            if 'x' in kwargs:
-                self.x = kwargs['x']
-            if 'y' in kwargs:
-                self.y = kwargs['y']
+        else:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'width':
+                    self.width = value
+                elif key == 'height':
+                    self.height = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
 
     def to_dictionary(self):
         dicti = {}

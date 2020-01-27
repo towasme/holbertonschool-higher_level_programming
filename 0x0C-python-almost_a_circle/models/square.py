@@ -2,19 +2,19 @@
 """
 new class square that inherits from Rectangle class
 """
-
-
 from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}" \
+            .format(self.id, self.x, self.y, self.width)
 
-    def update(self, *args, **kwargs): #corregir este codigo ya que no ejecuta bien
-        if args is not None:
+    def update(self, *args, **kwargs):
+        if args:
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
@@ -24,14 +24,15 @@ class Square(Rectangle):
             if len(args) >= 4:
                 self.y = args[3]
         else:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'size' in kwargs:
-                self.size = kwargs['size']
-            if 'x' in kwargs:
-                self.x = kwargs['x']
-            if 'y' in kwargs:
-                self.y = kwargs['y']
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'size':
+                    self.size = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
 
     @property
     def size(self):
