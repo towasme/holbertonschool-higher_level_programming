@@ -55,6 +55,7 @@ class Square(Rectangle):
         if value <= 0:
             raise ValueError("size must be > 0")
         self.width = value
+        self.height = value
 
     def to_dictionary(self):
         """returns a dictionary withh  the attributes of the class"""
