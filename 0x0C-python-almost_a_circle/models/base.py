@@ -2,6 +2,8 @@
 """
 creation on a class base with a constructor
 """
+
+
 import json
 
 
@@ -27,5 +29,10 @@ class Base:
 
     def save_to_file(cls, list_objs):
         """writes the json string representations o a list"""
+        str_new = []
+        if list_objs is None:
+            return str_new
+        else:
+
         with open(filename, 'w', encoding='utf-8') as file:
             return file.write(json.dumps())
