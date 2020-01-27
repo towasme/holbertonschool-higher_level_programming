@@ -25,4 +25,4 @@ class Base:
 
     def save_to_file(cls, list_objs):
         with open(filename, 'w', encoding='utf-8') as file:
-            return file.write(json.dumps(my_obj))
+            return file.write(json.dumps())
