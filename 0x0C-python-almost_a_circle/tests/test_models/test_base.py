@@ -76,31 +76,6 @@ class TestBaseClassCreation(unittest.TestCase):
              "'Base' object has no attribute 'to_dictionary'", str(
                 e.exception))
 
-    def test_load_from_file(self):
-        """Test load_from_file functionality """
-        if os.path.exists("Rectangle.json"):
-            os.remove("Rectangle.json")
-        if os.path.exists("Square.json"):
-            os.remove("Square.json")
-        if os.path.exists("Base.json"):
-            os.remove("Base.json")
-        r_output = Rectangle.load_from_file()
-        self.assertEqual(r_output, [])
-        sq_output = Square.load_from_file()
-        self.assertEqual(sq_output, [])
-        er = "load_from_file() takes 1 positional argument but 2 were given"
-        with self.assertRaises(TypeError) as e:
-            list_rectangles_output = Rectangle.load_from_file("str")
-        self.assertEqual(er, str(e.exception))
-
-    def test_create(self):
-        """ Test create functionality """
-        with self.assertRaises(TypeError) as e:
-            err = Rectangle.create("str")
-        self.assertEqual(
-            "create() takes 1 positional argument but 2 were given", str(
-                e.exception))
-
     def test_dictionary(self):
         """Comment"""
         re1 = Rectangle(10, 7, 2, 8, 70)
