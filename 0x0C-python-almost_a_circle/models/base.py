@@ -52,3 +52,13 @@ class Base:
                 str_new.append(new_dic)
         with open(cls.__name__ + ".json", 'w', encoding='utf-8') as file:
             return file.write(cls.to_json_string(str_new))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """method to update the class base"""
+        if cls.__name__ is "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ is "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
