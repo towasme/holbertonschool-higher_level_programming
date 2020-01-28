@@ -13,8 +13,8 @@ class Testrectangle(unittest.TestCase):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/rectangle.py'])
-        self.assertEqual(result.total_errors, 0,
-                        "Found code style errors (and warnings).")
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings).")
 
     def test_subclass(self):
         self.assertTrue(issubclass(Rectangle, Base))
@@ -98,4 +98,3 @@ class Testrectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             H1 = Rectangle(5, 9, 5, -4798576398576)
             raise ValueError()
-
