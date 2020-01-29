@@ -52,3 +52,14 @@ class Base:
                 str_new.append(new_dic)
         with open(cls.__name__ + ".json", 'w', encoding='utf-8') as file:
             return file.write(cls.to_json_string(str_new))
+
+    @classmethod
+    def load_from_file(cls):
+        """return a list of instances"""
+        new_list = []
+        with open(cls.__name__ + ".json", 'w', encoding='utf-8') as file:
+            if file is None:
+                return new_list
+            else:
+                variable = cls.from_json_string(file.read())
+                return
