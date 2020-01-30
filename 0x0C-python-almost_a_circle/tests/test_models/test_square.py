@@ -1,24 +1,21 @@
 #!/usr/bin/python3
-
+"""test Square"""
 import unittest
 import pep8
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-== == == == == == = Task
-11 == == == == == == == == == == == == == == == == == ==
 
+class Testsquare(unittest.TestCase):
+    """ """
+    def test_pep8_conformance_square(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/square.py'])
+        self.assertEqual(
+            result.total_errors, 0, "Found code style errors (and warnings).")
 
-def test_pep8_conformance_square(self):
-    """Test that we conform to PEP8."""
-    pep8style = pep8.StyleGuide(quiet=True)
-    result = pep8style.check_files(['models/square.py'])
-    self.assertEqual(result.total_errors, 0,
-                     "Found code style errors (and warnings).")
-
-
-class TestSquare(unittest.TestCase):
     def test_getter(self):
         r1 = Square(5)
         self.assertEqual(r1.size, 5)
@@ -79,34 +76,21 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.width, 6)
         self.assertEqual(r1.height, 6)
 
-== == == == == == == End
-Task
-11 == == == == == == == == == == == == == == == == == == == == ==
+    def test_to_dictionary(self):
 
-“””Task
-14”””
+        Base._Base__nb_objects = 0
 
-def test_to_dictionary(self):
-    Base._Base__nb_objects = 0
+        s1 = Square(10, 2, 1, 9)
+        s1_dictionary = s1.to_dictionary()
+        expected = {'id': 9, 'x': 2, 'size': 10, 'y': 1}
+        self.assertEqual(s1_dictionary, expected)
 
-    s1 = Square(10, 2, 1)
-    s1_dictionary = s1.to_dictionary()
-    expected = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
-    self.assertEqual(s1_dictionary, expected)
+        s1 = Square(1, 0, 0, 9)
+        s1_dictionary = s1.to_dictionary()
+        expected = {'id': 9, 'x': 0, 'size': 1, 'y': 0}
+        self.assertEqual(s1_dictionary, expected)
 
-    s1 = Square(1)
-    s1_dictionary = s1.to_dictionary()
-    expected = {'id': 2, 'x': 0, 'size': 1, 'y': 0}
-    self.assertEqual(s1_dictionary, expected)
-
-    s1.update(5, 5, 5, 5)
-    s1_dictionary = s1.to_dictionary()
-    expected = {'id': 5, 'x': 5, 'size': 5, 'y': 5}
-    self.assertEqual(s1_dictionary, expected)
-
-“””End
-task
-14”””
-
-if __name__ == "_main_":
-    unittest.main()
+        s1.update(5, 5, 5, 5)
+        s1_dictionary = s1.to_dictionary()
+        expected = {'id': 5, 'x': 5, 'size': 5, 'y': 5}
+        self.assertEqual(s1_dictionary, expected)

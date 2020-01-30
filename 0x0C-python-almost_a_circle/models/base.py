@@ -63,3 +63,12 @@ class Base:
             else:
                 variable = cls.from_json_string(file.read())
                 return
+
+    def create(cls, **dictionary):
+        """method to update the class base"""
+        if cls.__name__ is "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ is "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
