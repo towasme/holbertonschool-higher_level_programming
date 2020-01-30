@@ -57,13 +57,15 @@ class Base:
     def load_from_file(cls):
         """return a list of instances"""
         new_list = []
-        with open(cls.__name__ + ".json", 'w', encoding='utf-8') as file:
-            if file is None:
-                return new_list
-            else:
-                variable = cls.from_json_string(file.read())
-                return
+        try:
+            with open(cls.__name__ + ".json", 'r', encoding='utf-8') as file:
+                new_list = cls.from_json_string(file.read())
+                list_of_instance = [cls.create(**index) for index in new_list]
+                return list_of_instance
+        except:
+            return new_list
 
+    @classmethod
     def create(cls, **dictionary):
         """method to update the class base"""
         if cls.__name__ is "Rectangle":
