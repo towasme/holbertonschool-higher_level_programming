@@ -74,3 +74,29 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """writes the csv string representations o a list"""
+        str_new = []
+        if list_objs is None:
+            with open(cls.__name__ + ".csv", 'w', encoding='utf-8') as file:
+                return file.write(cls.to_json_string(str_new))
+        else:
+            for obj in list_objs:
+                new_dic = obj.to_dictionary()
+                str_new.append(new_dic)
+        with open(cls.__name__ + ".csv", 'w', encoding='utf-8') as file:
+            return file.write(cls.to_json_string(str_new))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """return a list of instances"""
+        new_list = []
+        try:
+            with open(cls.__name__ + ".csv", 'r', encoding='utf-8') as file:
+                new_list = cls.from_json_string(file.read())
+                list_of_instance = [cls.create(**index) for index in new_list]
+                return list_of_instance
+        except:
+            return new_list
