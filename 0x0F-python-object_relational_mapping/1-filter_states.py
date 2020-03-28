@@ -26,4 +26,5 @@ if __name__ == "__main__":
     rows = cur.fetchall()
 
     for state in rows:
-        print(state)
+        if state[1][0] == 'N':
+            print(state)
