@@ -4,7 +4,6 @@ script that list all cities in a state
 """
 import MySQLdb
 import sys
-import re
 
 
 if __name__ == "__main__":
@@ -28,11 +27,7 @@ if __name__ == "__main__":
 
     rows = cur.fetchall()
 
-    size = 1
-    for cities in rows:
-        cities = ', '.join(cities)
-        if size == len(rows):
-            print(cities)
-        else:
-            print(cities + ", ", end="")
-        size += 1
+    city = ""
+    for i in rows:
+        city = city + i[0] + ", "
+    print(city[0:-2])
