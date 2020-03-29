@@ -31,3 +31,4 @@ if __name__ == "__main__":
     for i in rows:
         city = city + i[0] + ", "
     print(city[0:-2])
+    
