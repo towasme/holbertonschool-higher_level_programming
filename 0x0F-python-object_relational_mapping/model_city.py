@@ -4,9 +4,9 @@ class definitions of City and an base instance
 """
 import sys
 import MySQLdb
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import State, ForeignKey
+from model_state import State
 
 
 Base = declarative_base()
