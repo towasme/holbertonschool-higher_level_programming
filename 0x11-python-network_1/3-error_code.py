@@ -3,11 +3,15 @@
 """
 import sys
 import urllib.request
-import urllib.parse
+import urllib.error
 
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    with urllib.request.urlopen(url) as response:
-        html = response.read()
-        print(html)
+    try:
+            resp = (urllib.request.urlopen(url))
+    except urllib.error.HTTPError as response:
+            html = response.code
+            print("Error code: {}".format(html))
+    else:
+            print(resp.read().decode('utf-8'))
