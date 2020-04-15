@@ -6,7 +6,8 @@ import urllib.request
 import urllib.parse
 
 
-url = sys.argv[1]
-with urllib.request.urlopen(url) as response:
-    html = response.read()
-    print(html)
+if __name__ == "__main__":
+    url = sys.argv[1]
+    with urllib.request.urlopen(url) as response:
+        html = response.read()
+        print(html)
