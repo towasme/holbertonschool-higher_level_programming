@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-num = 0;
+let num = 0;
 
 exports.logMe = function (item) {
   console.log('%d:', num, item);
