@@ -12,4 +12,4 @@ module.exports = class Square extends Square5 {
       console.log(c.repeat(this.size));
     }
   }
-};
+}
