@@ -8,8 +8,8 @@ class Square extends Square5 {
     if (c === undefined) {
       c = 'X';
     }
-    for (i; i < this.size; i++) {
-      console.log(c.repeat(this.size));
+    for (i; i < this.height; i++) {
+      console.log(c.repeat(this.width));
     }
   }
 }
