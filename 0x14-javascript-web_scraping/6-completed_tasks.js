@@ -10,7 +10,7 @@ request.get(url, function (error, response, body) {
   data = (JSON.parse(body));
   function obtain (data) {
     let user;
-    const obj = Object;
+    const obj = Object();
     for (user of data) {
       if (user.completed === true) {
         if (Object.prototype.hasOwnProperty.call(obj, user.userId)) {
