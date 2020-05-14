@@ -33,7 +33,9 @@ request.get(url, function (error, response, body) {
       i += 1;
       j++;
       if (user[j] !== k) {
-        dict[k] = i;
+        if (i > 0) {
+          dict[k] = i;
+        }
         i = 0;
         k++;
       }
