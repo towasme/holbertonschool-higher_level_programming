@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
 const request = require('request');
-const name = '?completed=true';
+// const name = '?completed=true';
 const dir = process.argv[2];
-const url = (dir + name);
+const url = (dir);
 request.get(url, function (error, response, body) {
   let data = {};
   if (error) {
@@ -25,8 +25,10 @@ request.get(url, function (error, response, body) {
     //   console.log(obj);
     // }
     data.forEach(element => {
-      user[i] = (element.userId);
-      i++;
+      if (element.completed === true) {
+        user[i] = (element.userId);
+        i++;
+      }
     });
     i = 0;
     while (user[j] === k && user[j] !== undefined) {
